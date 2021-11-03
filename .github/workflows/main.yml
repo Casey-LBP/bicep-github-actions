@@ -20,20 +20,20 @@ jobs:
       - name: 'Bicep Build'
         uses: aliencube/bicep-build-actions@v0.1
         with:
-            files: main-dev.bicep main-prod.bicep
+            files: dev.bicep prod.bicep
       - run: ls
-      - run: cat main-dev.json
-      - run: cat main-prod.json
+      - run: cat dev.json
+      - run: cat prod.json
       - name: 'Publish Artifacts dev'
         uses: actions/upload-artifact@v2
         with:
-          name: 'main-dev'
-          path: main-dev.json
+          name: 'dev'
+          path: dev.json
       - name: 'Publish Artifacts'
         uses: actions/upload-artifact@v2
         with:
-          name: 'main-prod'
-          path: main-prod.json
+          name: 'prod'
+          path: prod.json
   deployDevelopment:
     needs: build
     name: 'Deploy to development'
@@ -44,7 +44,7 @@ jobs:
     - name: 'Download artifacts dev'
       uses: actions/download-artifact@v2
       with:
-        name: 'main-dev'
+        name: 'dev'
     - name: 'Azure Login'
       uses: Azure/login@v1.1
       with:
@@ -62,7 +62,7 @@ jobs:
         scope: subscription
         subscriptionId: ${{ steps.subs.outputs.subid }}
         region: east us
-        template: main-dev.json
+        template: dev.json
   DeployProduction:
     needs: deployDevelopment
     name: 'Deploy to production'
@@ -91,4 +91,4 @@ jobs:
         scope: subscription
         subscriptionId: ${{ steps.subs.outputs.subid }}
         region: east us
-        template: main-prod.json
+        template: prod.json
