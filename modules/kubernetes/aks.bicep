@@ -9,11 +9,12 @@ param clusterName string = 'aks101'
 param location string = resourceGroup().location
 
 // The number of nodes for the cluster. 1 Node is enough for Dev/Test and minimum 3 nodes, is recommended for Production
-param agentCount int = {
+param agentCount int = 1 /*{
   default: 1
   minValue: 1
   maxValue: 50
 }
+*/
 
 // The size of the Virtual Machine.
 param agentVMSize string = 'Standard_D2_v3'
