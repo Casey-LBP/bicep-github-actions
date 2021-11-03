@@ -61,7 +61,7 @@ jobs:
       with:
         scope: subscription
         subscriptionId: ${{ steps.subs.outputs.subid }}
-        region: westeurope
+        region: east us
         template: main-dev.json
   DeployProduction:
     needs: deployDevelopment
@@ -90,5 +90,5 @@ jobs:
       with:
         scope: subscription
         subscriptionId: ${{ steps.subs.outputs.subid }}
-        region: westeurope
+        region: east us
         template: main-prod.json
