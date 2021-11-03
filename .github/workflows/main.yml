@@ -27,7 +27,7 @@ jobs:
       - name: 'Publish Artifacts dev'
         uses: actions/upload-artifact@v2
         with:
-          name: 'main-dev'
+          name: 'dev'
           path: main-dev.json
       - name: 'Publish Artifacts'
         uses: actions/upload-artifact@v2
