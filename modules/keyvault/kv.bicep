@@ -1,6 +1,6 @@
 // module keyvault
 //Specifies the name of the key vault.
-param vaultName string ='kvwesteurope01'
+param vaultName string ='kveatus01'
 
 // Specifies the Azure location where the key vault should be created.
 param location string = resourceGroup().location
