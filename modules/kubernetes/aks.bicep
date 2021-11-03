@@ -1,40 +1,23 @@
 // module kubernetes
-param dnsPrefix string {
-  default: 'cl01'
-  metadata: {
-    description: 'The DNS prefix to use with hosted Kubernetes API server FQDN.'
-  }
-}
+// The DNS prefix to use with hosted Kubernetes API server FQDN.
+param dnsPrefix string = 'cl01'
 
-param clusterName string {
-  default: 'aks101'
-  metadata: {
-    description: 'The name of the Managed Cluster resource.'
-  }
-}
+// The name of the Managed Cluster resource
+param clusterName string = 'aks101'
 
-param location string {
-  default: resourceGroup().location
-  metadata: {
-    description: 'Specifies the Azure location where the key vault should be created.'
-  }
-}
+// Specifies the Azure location where the key vault should be created.
+param location string = resourceGroup().location
 
-param agentCount int {
+// The number of nodes for the cluster. 1 Node is enough for Dev/Test and minimum 3 nodes, is recommended for Production
+/*param agentCount int = {
   default: 1
   minValue: 1
   maxValue: 50
-  metadata: {
-    description: 'The number of nodes for the cluster. 1 Node is enough for Dev/Test and minimum 3 nodes, is recommended for Production'
-  }
 }
+*/
 
-param agentVMSize string {
-  default: 'Standard_D2_v3'
-  metadata: {
-    description: 'The size of the Virtual Machine.'
-  }
-}
+// The size of the Virtual Machine.
+param agentVMSize string = 'Standard_D2_v3'
 
 param tagEnvironmentNameAks string
 param tagCostCenterAks string
@@ -56,7 +39,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2020-09-01' = {
     agentPoolProfiles: [
       {
         name: 'pool01'
-        count: agentCount
+        //count: agentCount
         mode: 'System'
         vmSize: agentVMSize
         type: 'VirtualMachineScaleSets'

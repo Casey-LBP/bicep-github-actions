@@ -1,38 +1,18 @@
 // module virtual network
-param vnetName string { 
-  default: 'vnet01'
-  metadata: {
-    description: 'VNet name'
-  }
-}
+// VNet name
+param vnetName string = 'vnet01'
 
-param vnetLocation string  {
-  default: resourceGroup().location
-  metadata: {
-    description: 'Location of the virtual network'
-  }
-}
+// Location of the virtual network
+param vnetLocation string =resourceGroup().location
 
-param vnetAddressPrefix string {
-  default: '10.0.0.0/16'
-  metadata: {
-    description: 'Address prefix'
-  }
-}
+// Address prefix
+param vnetAddressPrefix string = '10.0.0.0/16'
 
-param subnetName1 string  {
-  default: 'subnet1'
-  metadata: {
-    description: 'Subnet 1 Name'
-  }
-}
+// Subnet 1 Name
+param subnetName1 string = 'subnet1'
 
-param subnetPrefix1 string {
-  default: '10.0.1.0/24'
-  metadata: {
-    description: 'Subnet 1 Prefix'
-  }
-}
+// Subnet 1 Prefix
+param subnetPrefix1 string = '10.0.1.0/24'
 
 param tagEnvironmentNameVnet string
 param tagCostCenterVnet string

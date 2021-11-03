@@ -76,7 +76,7 @@ module aks './modules/kubernetes/aks.bicep' = {
     dnsPrefix: dnsPrefix
     clusterName: clusterName
     location: aksLocation
-    agentCount: agentCount
+    //agentCount: agentCount
     agentVMSize: agentVMSize
     vnetSubnetId: vnet.outputs.subnets[0].id
     tagEnvironmentNameAks: tagEnvironmentNameAks

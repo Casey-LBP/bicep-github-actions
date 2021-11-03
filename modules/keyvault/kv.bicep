@@ -1,35 +1,18 @@
 // module keyvault
-param vaultName string {
-  default: 'kvwesteurope01'
-  metadata: {
-    description: 'Specifies the name of the key vault..'
-  }
-}
+//Specifies the name of the key vault.
+param vaultName string ='kvwesteurope01'
 
-param location string {
-  default: resourceGroup().location
-  metadata: {
-    description: 'Specifies the Azure location where the key vault should be created.'
-  }
-}
+// Specifies the Azure location where the key vault should be created.
+param location string = resourceGroup().location
 
-param sku string {
-  metadata: {
-    description: 'Specifies whether the key vault is a standard vault or a premium vault.'
-  }
-}
+// Specifies whether the key vault is a standard vault or a premium vault.
+param sku string 
 
-param tenant string {
-  metadata: {
-    description: 'Specifies the Azure Active Directory tenant ID that should be used for authenticating requests to the key vault..'
-  }
-}
+// Specifies the Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+param tenant string 
 
-param accessPolicies array {
-  metadata: {
-    description: 'Specifies the permissions to secrets in the vault.'
-  }
-}
+// Specifies the permissions to secrets in the vault.
+param accessPolicies array 
 
 param tagEnvironmentNameKv string
 param tagCostCenterKv string
