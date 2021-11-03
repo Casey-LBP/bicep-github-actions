@@ -2,7 +2,7 @@ targetScope = 'subscription'
 
 // virtual network parameters
 param vnetName string = 'vnet-p-eus-001'
-param vnetLocation string = 'east us'
+param vnetLocation string = 'eastus'
 param vnetAddressPrefix string = '11.0.0.0/16'
 param subnetName1 string = 'snet-p-eus-001-aks-pool01'
 param subnetPrefix1 string = '11.0.1.0/24'
@@ -12,7 +12,7 @@ param tagCostCenterVnet string = '123'
 // kubernetes parameters
 param dnsPrefix string = 'akspwe001'
 param clusterName string = 'aks-p-eus-001'
-param aksLocation string = 'east us'
+param aksLocation string = 'eastus'
 param agentCount int = 2
 param agentVMSize string = 'Standard_D2_v3'
 param tagEnvironmentNameAks string = 'production'
@@ -20,7 +20,7 @@ param tagCostCenterAks string = '123'
 
 // keyvault parameters
 param vaultName string = 'kvpeus001'
-param kvLocation string = 'east us'
+param kvLocation string = 'eastus'
 param sku string = 'standard'
 param tenant string = '86545b4b-8dd6-4b55-95f3-8d2bbdad26a1'  // replace with your tenantId
 param accessPolicies array = [
@@ -44,13 +44,13 @@ param tagCostCenterKv string = '123'
 // resource group infra
 resource rgInfra 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   name: '_rg-infra-p-eus-001'
-  location: 'east us'
+  location: 'eastus'
 }
 
 // resource group kubernetes
 resource rgAks 'Microsoft.Resources/resourceGroups@2020-06-01' = {
   name: '_rg-aks-p-eus-001'
-  location: 'east us'
+  location: 'eastus'
 }
 
 // module virtual network
