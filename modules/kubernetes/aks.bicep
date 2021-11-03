@@ -9,12 +9,11 @@ param clusterName string = 'aks101'
 param location string = resourceGroup().location
 
 // The number of nodes for the cluster. 1 Node is enough for Dev/Test and minimum 3 nodes, is recommended for Production
-/*param agentCount int = {
+param agentCount int = {
   default: 1
   minValue: 1
   maxValue: 50
 }
-*/
 
 // The size of the Virtual Machine.
 param agentVMSize string = 'Standard_D2_v3'
@@ -39,7 +38,7 @@ resource aks 'Microsoft.ContainerService/managedClusters@2020-09-01' = {
     agentPoolProfiles: [
       {
         name: 'pool01'
-        //count: agentCount
+        count: agentCount
         mode: 'System'
         vmSize: agentVMSize
         type: 'VirtualMachineScaleSets'
