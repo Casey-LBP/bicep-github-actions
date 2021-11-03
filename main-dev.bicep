@@ -1,32 +1,32 @@
 targetScope = 'subscription'
 
 // virtual network parameters
-param vnetName string = 'vnet-d-we-001'
-param vnetLocation string = 'westeurope'
+param vnetName string = 'vnet-d-eus-001'
+param vnetLocation string = 'east us'
 param vnetAddressPrefix string = '12.0.0.0/16'
-param subnetName1 string = 'snet-d-we-001-aks-pool01'
+param subnetName1 string = 'snet-d-eus-001-aks-pool01'
 param subnetPrefix1 string = '12.0.1.0/24'
 param tagEnvironmentNameVnet string = 'development'
 param tagCostCenterVnet string = '123'
 
 // kubernetes parameters
-param dnsPrefix string = 'aksdwe001'
-param clusterName string = 'aks-d-we-001'
-param aksLocation string = 'westeurope'
+param dnsPrefix string = 'aksdeus001'
+param clusterName string = 'aks-d-eus-001'
+param aksLocation string = 'eus'
 param agentCount int = 2
 param agentVMSize string = 'Standard_D2_v3'
 param tagEnvironmentNameAks string = 'development'
 param tagCostCenterAks string = '123'
 
 // keyvault parameters
-param vaultName string = 'kvdwe001'
-param kvLocation string = 'westeurope'
+param vaultName string = 'kvdeus001'
+param kvLocation string = 'east us'
 param sku string = 'standard'
-param tenant string = 'f0d1d268-e79f-49c2-b61c-5ec11119b78c'  // replace with your tenantId
+param tenant string = '86545b4b-8dd6-4b55-95f3-8d2bbdad26a1'  // replace with your tenantId
 param accessPolicies array = [
   {
     tenantId: tenant
-    objectId: 'b25c764d-9768-4ad5-8923-2e14027d80e9'  // replace with your objectId
+    objectId: '828e6504-de17-412d-9f88-58cfb090ad98'  // replace with your objectId
     permissions: {
       secrets: [
         'Get'
@@ -43,14 +43,14 @@ param tagCostCenterKv string = '123'
 
 // resource group infra
 resource rgInfra 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: '_rg-infra-d-we-001'
-  location: 'westeurope'
+  name: '_rg-infra-d-eus-001'
+  location: 'east us'
 }
 
 // resource group kubernetes
 resource rgAks 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: '_rg-aks-d-we-001'
-  location: 'westeurope'
+  name: '_rg-aks-d-eus-001'
+  location: 'east us'
 }
 
 // module virtual network

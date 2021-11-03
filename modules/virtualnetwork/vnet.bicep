@@ -1,5 +1,5 @@
 // module virtual network
-param vnetName string {
+param vnetName string { 
   default: 'vnet01'
   metadata: {
     description: 'VNet name'
